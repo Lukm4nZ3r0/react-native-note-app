@@ -74,7 +74,7 @@ class HeaderMenu extends Component{
             <Text style={{flex:4, fontSize:20, fontWeight:'400'}}>Add Category</Text>
           </TouchableOpacity>
 
-            <Modal style={{}} animationType="slide" visible={this.state.modalVisible} transparent={true} onRequestClose={()=>console.warn('closed')}>
+            <Modal animationType="slide" visible={this.state.modalVisible} transparent={true} onRequestClose={()=>console.warn('closed')}>
                 <View style={{alignItems: 'center', justifyContent:'center',marginTop:height/3}}>
                   <View style={{backgroundColor:'white', padding:35, borderRadius:10, elevation:5, width:300}}>
                     <TextInput underlineColorAndroid='blue' placeholder="Category Name" onChangeText={(text) => this.setState({categoryName: text})} />

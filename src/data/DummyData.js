@@ -1,188 +1,181 @@
 let DummyData = [
     {
         id:0,
-        note:'Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#1abc9c'
+        category:'school'
     },
     {
         id:1,
-        note:'Ksdwfwawfwagawgawgwagawfcawfawwafwaten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul 2',
-        category:'technology',
-        code: '#3498db'
+        category:'technology'
     },
     {
         id:2,
-        note:'jngesnesngsilegnseilgneiksgten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul 3',
-        category:'school',
-        code: '#34495e'
+        category:'school'
     },
     {
         id:3,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul 4',
-        category:'technology',
-        code: '#27ae60'
+        category:'technology'
     },
     {
         id:4,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul 5',
-        category:'technology',
-        code: '#8e44ad'
+        category:'technology'
     },
     {
         id:5,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#e74c3c'
+        category:'school'
     },
     {
         id:6,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'lifestyle',
-        code: '#95a5a6'
+        category:'lifestyle'
     },
     {
         id:7,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'lifestyle',
-        code: '#d35400'
+        category:'lifestyle'
     },
     {
         id:8,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'lifestyle',
-        code: '#bdc3c7'
+        category:'lifestyle'
     },
     {
         id:9,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'sport',
-        code: '#2ecc71'
+        category:'sport'
     },
     {
         id:10,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'sport',
-        code: '#9b59b6'
+        category:'sport'
     },
     {
         id:11,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'sport',
-        code: '#16a085'
+        category:'sport'
     },
     {
         id:12,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'sport',
-        code: '#2980b9'
+        category:'sport'
     },
     {
         id:13,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#2c3e50'
+        category:'school'
     },
     {
         id:14,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#e67e22'
+        category:'school'
     },
     {
         id:15,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#ecf0f1'
+        category:'school'
     },
     {
         id:16,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#f39c12'
+        category:'school'
     },
     {
         id:17,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#c0392b'
+        category:'school'
     },
     {
         id:18,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#7f8c8d'
+        category:'school'
     },
     {
         id:19,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#1abc9c'
+        category:'school'
     },
     {
         id:20,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#3498db'
+        category:'school'
     },
     {
         id:21,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#f1c40f'
+        category:'school'
     },
     {
         id:22,
-        note:'Konten',
+        note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         time: '22 Juni',
         title:'Judul',
-        category:'school',
-        code: '#f1c40f'
+        category:'school'
     },
 ]
+//school, sport, technology, lifestyle
+let DummyDataLength = DummyData.length // 23
+for(let i = 0 ; i<DummyDataLength ; i++){
+    if(DummyData[i].category == 'school'){
+        DummyData[i].code = '#f1c40f'
+    }
+    else if(DummyData[i].category == 'sport'){
+        DummyData[i].code = '#3498db'
+    }
+    else if(DummyData[i].category == 'technology'){
+        DummyData[i].code = '#1abc9d'
+    }
+    else if(DummyData[i].category == 'lifestyle'){
+        DummyData[i].code = '#f54287'
+    }
+}
 
 module.exports = DummyData

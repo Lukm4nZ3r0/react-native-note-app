@@ -12,9 +12,6 @@ class EditNote extends Component{
             data:props.navigation.state.params
         }
     }
-    componentDidMount(){
-        console.warn(this.state.data)
-    }
     static navigationOptions = {
         title: 'Add New Note',
         headerRight: <FontAwesome name="check-circle-o" style={{marginRight:width/10, fontSize:24, fontWeight:'bold'}}/>
