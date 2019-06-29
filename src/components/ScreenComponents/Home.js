@@ -23,15 +23,6 @@ class Home extends Component {
     header:null,
     tabBarLabel: 'Home!',
   };
-  
-  getNoteData = (newId,newTitle,newNote,newCategory) =>{
-    this.setState({
-      id: newId,
-      title: newTitle,
-      note: newNote,
-      category: newCategory
-    })  
-  }
 
   popUpHandler = () =>{
     let popUpState = this.state.popUp

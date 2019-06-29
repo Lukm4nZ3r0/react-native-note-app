@@ -1,29 +1,9 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, Dimensions, FlatList, TouchableHighlight} from 'react-native'
 import DummyData from '../../data/DummyData'
-import {FlatGrid} from 'react-native-super-grid'
 
 const FlatListData = ({navigation}) =>{
     return(
-    // <FlatGrid
-    //     itemDimension={130}
-    //     items={DummyData}
-    //     style={styles.gridView}
-    //     renderItem={({ item, index }) => (
-    //     <TouchableHighlight onPress={this.buttonOnPress} note={item.note}>
-    //         <View style={[styles.itemContainer, { backgroundColor: item.code, elevation:10 }]}>
-    //             <View style={{position:'absolute',right:'5%', top:'5%'}}>
-    //                 <Text style={{fontSize:17, fontWeight:'300', color:'#fff'}}>{item.time}</Text>
-    //                 <Text>ID: {item.id}</Text>
-    //             </View>
-    //             <View style={{marginTop:15}}>
-    //                 <Text style={{fontSize:20, fontWeight:'bold', color:'#fff'}}>{item.title}</Text>
-    //                 <Text style={{fontSize:14, fontWeight:'200', color:'#fff'}} numberOfLines={4}>{item.note}</Text>
-    //             </View>
-    //         </View>
-    //     </TouchableHighlight>
-    //     )}
-    // />
 
     <FlatList
         style={styles.gridView}
@@ -33,7 +13,6 @@ const FlatListData = ({navigation}) =>{
             <View style={[styles.itemContainer, { backgroundColor: item.code, elevation:10 }]}>
                 <View style={{position:'absolute',right:'5%', top:'5%'}}>
                     <Text style={{fontSize:17, fontWeight:'300', color:'#fff'}}>{item.time}</Text>
-                    <Text>ID: {item.id}</Text>
                 </View>
                 <View style={{marginTop:15}}>
                     <Text style={{fontSize:20, fontWeight:'bold', color:'#fff'}}>{item.title}</Text>
