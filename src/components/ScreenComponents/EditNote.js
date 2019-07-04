@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
-import {View, Text, Dimensions, TextInput, Picker} from 'react-native'
+import {View, Text, Dimensions, TextInput, Picker, TouchableOpacity} from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import DummyCategoryData from '../../data/DummyCategoryData'
+//redux
+import {updateNote,getNotes} from '../../publics/redux/actions/notes'
+import {connect} from 'react-redux'
 
 let {width} = Dimensions.get('window')
 
@@ -9,12 +12,33 @@ class EditNote extends Component{
     constructor(props){
         super(props)
         this.state={
-            data:props.navigation.state.params
+            id:props.navigation.state.params.id,
+            title:props.navigation.state.params.title,
+            note:props.navigation.state.params.note,
+            category:props.navigation.state.params.category
         }
     }
-    static navigationOptions = {
-        title: 'Add New Note',
-        headerRight: <FontAwesome name="check-circle-o" style={{marginRight:width/10, fontSize:24, fontWeight:'bold'}}/>
+    updateNotesBtn = () =>{
+        const {id,title,note,category} = this.state
+        if(title!=='' && note!== ''){
+            this.props.dispatch(updateNote({id,title,note,category}))
+            this.props.dispatch(getNotes())
+            console.log('ini adalah addnotes', this.props.addNote)
+        }
+        this.props.navigation.goBack()
+    }
+    componentDidMount(){
+        this.props.navigation.setParams({updateNotesBtn: this.updateNotesBtn})
+    }
+    static navigationOptions = ({navigation}) => {
+        return {
+            title: 'Edit this Note',
+            headerRight: (
+            <TouchableOpacity onPress={navigation.getParam('updateNotesBtn')}>
+                <FontAwesome name="check-circle-o" style={{marginRight:width/10, fontSize:24, fontWeight:'bold', color:'green'}}/>
+            </TouchableOpacity>
+            )
+        }
     };
 
     dummyCategoryData = () =>{
@@ -28,6 +52,8 @@ class EditNote extends Component{
     }
     
     render(){
+        console.log('dapat di editnote')
+        console.log(this.props.navigation.state.params)
         return(
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
                 <View style={{flex:1, alignItems:'center', justifyContent:'center', width:'90%'}}>
@@ -35,8 +61,9 @@ class EditNote extends Component{
                     multiline={true}
                     numberOfLines={8}
                     underlineColorAndroid="blue"
-                    placeholder={this.state.data.title}
-                    value={this.state.data.title}
+                    placeholder={this.state.title}
+                    value={this.state.title}
+                    onChangeText={(text)=>{this.setState({title:text})}}
                     style={{justifyContent:'flex-start', width:'100%'}}
                 />
                 </View>
@@ -45,15 +72,17 @@ class EditNote extends Component{
                     multiline={true}
                     numberOfLines={8}
                     underlineColorAndroid="blue"
-                    placeholder={this.state.data.note}
-                    value={this.state.data.note}
+                    placeholder={this.state.note}
+                    value={this.state.note}
+                    onChangeText={(text)=>{this.setState({note:text})}}
                     style={{justifyContent:'flex-start', width:'100%'}}
                 />
                 </View>
                 <View style={{flex:1}}>
                     <Text style={{fontWeight:'bold',fontSize:20}}>CATEGORY</Text>
                     <Picker
-                        selectedValue={this.state.data.category}
+                        selectedValue={this.state.category}
+                        onValueChange={(itemValue,itemIndex)=>this.setState({category:itemValue})}
                         style={{height: 50, width: 200, backgroundColor:'white', padding:15, elevation:5}}
                     >
                         {this.dummyCategoryData()}
@@ -65,4 +94,10 @@ class EditNote extends Component{
     }
 }
 
-export default EditNote
+const mapStateToProps = (state) =>{
+    return{
+        updateNote: state.notesData
+    }
+}
+
+export default connect(mapStateToProps)(EditNote)

@@ -1,15 +1,51 @@
 import React, {Component} from 'react'
-import {View, Text, Dimensions, TextInput, Picker} from 'react-native'
+import {View, Text, Dimensions, TextInput, Picker, TouchableOpacity} from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import DummyCategoryData from '../../data/DummyCategoryData'
+//redux
+import {addNotes} from '../../publics/redux/actions/notes'
+import {connect} from 'react-redux'
 
 let {width} = Dimensions.get('window')
 
 class AddNote extends Component{
-    static navigationOptions = {
-        title: 'Add New Note',
-        headerRight: <FontAwesome name="check-circle-o" style={{marginRight:width/10, fontSize:24, fontWeight:'bold'}}/>
-    };
+    constructor(props){
+        super(props)
+        this.state={
+            title:'',
+            note:'',
+            category:'',
+            errorMessage:''
+        }
+    }
+    addNotesBtn = () =>{
+        const {title,note,category} = this.state
+        if(title!=='' && note!== '' && category!==''){
+            this.props.dispatch(addNotes({title,note,category}))
+            this.setState({
+                errorMessage:''
+            })
+            this.props.navigation.goBack()
+        }
+        else{
+            this.setState({
+                errorMessage:'Please fill in the form below'
+            })
+        }
+    }
+    componentDidMount(){
+        this.props.navigation.setParams({addNotesBtn: this.addNotesBtn})
+    }
+    static navigationOptions = ({navigation}) => {
+        return {
+            title: 'Add New Note',
+            headerRight: (
+            <TouchableOpacity onPress={navigation.getParam('addNotesBtn')}>
+                <FontAwesome name="check-circle-o" style={{marginRight:width/10, fontSize:24, fontWeight:'bold', color:'green'}}/>
+            </TouchableOpacity>
+            )
+        }
+    };    
 
     dummyCategoryData = () =>{
         let dummyData = []
@@ -25,12 +61,14 @@ class AddNote extends Component{
         return(
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
                 <View style={{flex:1, alignItems:'center', justifyContent:'center', width:'90%'}}>
+                <Text>{this.state.errorMessage}</Text>
                 <TextInput
                     multiline={true}
                     underlineColorAndroid="blue"
                     numberOfLines={8}
                     placeholder="ADD TITLE..."
                     style={{justifyContent:'flex-start', width:'100%'}}
+                    onChangeText={(text)=>{this.setState({title:text})}}
                 />
                 </View>
                 <View style={{flex:1, alignItems:'center', justifyContent:'center', width:'90%'}}>
@@ -40,12 +78,15 @@ class AddNote extends Component{
                     numberOfLines={8}
                     placeholder="ADD DESCRIPTION..."
                     style={{justifyContent:'flex-start', width:'100%'}}
+                    onChangeText={(text)=>{this.setState({note:text})}}
                 />
                 </View>
                 <View style={{flex:1}}>
                     <Text style={{fontWeight:'bold',fontSize:20}}>CATEGORY</Text>
                     <Picker
                         style={{height: 50, width: 200, backgroundColor:'white', padding:15, elevation:5}}
+                        onValueChange={(itemValue,itemIndex)=>this.setState({category:itemValue})}
+                        selectedValue={this.state.category}
                     >
                         {this.dummyCategoryData()}
                         <Picker.Item label="ADD NEW CATEGORY" value="" />
@@ -56,4 +97,10 @@ class AddNote extends Component{
     }
 }
 
-export default AddNote
+const mapStateToProps = (state) =>{
+    return{
+        addNote: state.notesData
+    }
+}
+
+export default connect(mapStateToProps)(AddNote)

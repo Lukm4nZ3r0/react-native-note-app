@@ -3,6 +3,9 @@ import {ScrollView, Image, Text, View, TouchableOpacity, Dimensions, Modal, Text
 import {DrawerItems, SafeAreaView} from 'react-navigation'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import styles from '../styles'
+//redux
+import {getCategories, addCategory} from '../../publics/redux/actions/categories'
+import {connect} from 'react-redux'
 
 const {width,height} = Dimensions.get('window')
 
@@ -20,13 +23,16 @@ class HeaderMenu extends Component{
       categoryIcon:''
     }
   }
+  componentWillMount(){
+    this.props.dispatch(getCategories())
+  }
   getCategoryRoutesButton = () =>{
-    return this.state.categoryRoutes.map(item=>(
-      <TouchableOpacity key={item.id} style={{flex:1, flexDirection:'row', padding:15}} onPress={()=>this.props.navigation.navigate('SearchByCategory',{categoryName:item.name})}>
+    return this.props.categories.categoriesData.map(item=>(
+      <TouchableOpacity key={item.id} style={{flex:1, flexDirection:'row', padding:15}} onPress={()=>this.props.navigation.navigate('SearchByCategory',{categoryName:item.category})}>
         <View style={{flex:1, alignItems:'center', justifyContent: 'center',}}>
-          <FontAwesome style={styles.drawerIcon} name={item.icon}/>
+          <FontAwesome style={styles.drawerIcon} name='user'/>
         </View>
-        <Text style={{flex:4, fontSize:20, fontWeight:'400'}}>{item.label}</Text>
+        <Text style={{flex:4, fontSize:20, fontWeight:'400'}}>{item.category}</Text>
       </TouchableOpacity>
     ))
   }
@@ -39,23 +45,25 @@ class HeaderMenu extends Component{
   }
   addCategoryRoutes = () =>{
     if(this.state.categoryName !== ''){
-      let categoryItem = this.state.categoryRoutes.concat({
-        id:this.state.categoryRoutes.length + 1,
-        name:this.state.categoryName.toLowerCase(),
-        label:this.state.categoryName,
-        icon:this.state.categoryIcon
-      })
-      this.setState({
-        categoryRoutes: categoryItem
-      })
+      // let categoryItem = this.state.categoryRoutes.concat({
+      //   id:this.state.categoryRoutes.length + 1,
+      //   name:this.state.categoryName.toLowerCase(),
+      //   label:this.state.categoryName,
+      //   icon:this.state.categoryIcon
+      // })
+      // this.setState({
+      //   categoryRoutes: categoryItem
+      // })
+      let {categoryName, categoryIcon} = this.state
+      this.props.dispatch(addCategory({category:categoryName, image:categoryIcon}))
       this.setModalVisible(false)
     }
   }
   render(){
+    console.log('ini adalah kumpulan categories', this.props.categories.categoriesData)
     return(
-      <ScrollView>
         <SafeAreaView
-          style={{backgroundColor:'white'}}
+          style={{backgroundColor:'white', flex:1}}
           forceInset={{ top: 'always', horizontal: 'never' }}>
           <View style={styles.profileMenu}>
               <Image
@@ -64,34 +72,41 @@ class HeaderMenu extends Component{
               />
               <Text style={{fontWeight:'bold', marginTop:10, fontSize:20}}>Asep Lukman Hakim</Text>
           </View>
+          <View style={{flex:2}}>
+            <ScrollView>
+            {this.getCategoryRoutesButton()}
 
-          {this.getCategoryRoutesButton()}
+            <TouchableOpacity style={{flex:1, flexDirection:'row', padding:15}} onPress={()=>this.setModalVisible(true)}>
+              <View style={{flex:1, alignItems:'center', justifyContent: 'center',}}>
+                <FontAwesome style={styles.drawerIcon} name="plus-circle"/>
+              </View>
+              <Text style={{flex:3, fontSize:20, fontWeight:'400'}}>Add Category</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity style={{flex:1, flexDirection:'row', padding:15}} onPress={()=>this.setModalVisible(true)}>
-            <View style={{flex:1, alignItems:'center', justifyContent: 'center',}}>
-              <FontAwesome style={styles.drawerIcon} name="plus-circle"/>
-            </View>
-            <Text style={{flex:4, fontSize:20, fontWeight:'400'}}>Add Category</Text>
-          </TouchableOpacity>
-
-            <Modal animationType="slide" visible={this.state.modalVisible} transparent={true} onRequestClose={()=>console.warn('closed')}>
-                <View style={{alignItems: 'center', justifyContent:'center',marginTop:height/3}}>
-                  <View style={{backgroundColor:'white', padding:35, borderRadius:10, elevation:5, width:300}}>
-                    <TextInput underlineColorAndroid='blue' placeholder="Category Name" onChangeText={(text) => this.setState({categoryName: text})} />
-                    <TextInput underlineColorAndroid='blue' placeholder="Image Url" onChangeText={(text) => this.setState({categoryIcon: text})}/>
-                    <TouchableOpacity style={{padding:5, backgroundColor:'blue', borderRadius:10}} onPress={()=>{this.addCategoryRoutes()}}>
-                      <Text style={{fontWeight:'bold', fontSize:18, color:'white'}}>Add</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{marginTop:10, padding:5, backgroundColor:'blue', borderRadius:10}} onPress={()=>{this.setModalVisible(!this.state.modalVisible)}}>
-                      <Text style={{fontSize:18, color:'white'}}>Cancel</Text>
-                    </TouchableOpacity>
+              <Modal animationType="slide" visible={this.state.modalVisible} transparent={true} onRequestClose={()=>console.warn('closed')}>
+                  <View style={{alignItems: 'center', justifyContent:'center',marginTop:height/3}}>
+                    <View style={{backgroundColor:'white', padding:35, borderRadius:10, elevation:5, width:300}}>
+                      <TextInput underlineColorAndroid='blue' placeholder="Category Name" onChangeText={(text) => this.setState({categoryName: text})} />
+                      <TextInput underlineColorAndroid='blue' placeholder="Image Url" onChangeText={(text) => this.setState({categoryIcon: text})}/>
+                      <TouchableOpacity style={{padding:5, backgroundColor:'blue', borderRadius:10}} onPress={()=>{this.addCategoryRoutes()}}>
+                        <Text style={{fontWeight:'bold', fontSize:18, color:'white'}}>Add</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity style={{marginTop:10, padding:5, backgroundColor:'blue', borderRadius:10}} onPress={()=>{this.setModalVisible(!this.state.modalVisible)}}>
+                        <Text style={{fontSize:18, color:'white'}}>Cancel</Text>
+                      </TouchableOpacity>
+                    </View>
                   </View>
-                </View>
-            </Modal>
+              </Modal>
+              </ScrollView>
+            </View>
         </SafeAreaView>
-      </ScrollView>
     )
   }
 }
+const mapStateToProps = (state) =>{
+  return{
+      categories: state.categories
+  }
+}
 
-export default HeaderMenu
+export default connect(mapStateToProps)(HeaderMenu)

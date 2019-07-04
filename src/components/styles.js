@@ -13,10 +13,9 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     image: {
-      flex: 1,
-      width:90,
-      height: 90,
-      borderRadius:150
+      width:120,
+      height: 120,
+      borderRadius:60
     },
     drawerIcon:{
         flex:1,
@@ -26,8 +25,8 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop:'15%',
-        marginBottom:'15%',
+        width:'100%',
+        padding:20
     },
     headerPhoto:{
         height:40,

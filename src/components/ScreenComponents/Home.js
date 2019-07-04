@@ -7,6 +7,8 @@ import FlatListData from './FlatListData'
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 import AddNote from './AddNote'
 import EditNote from './EditNote'
+import SortingModal from './SortingModal'
+import DeletePopUp from './DeletePopUp'
 
 let {width, height} = Dimensions.get('window')
 
@@ -15,8 +17,8 @@ class Home extends Component {
     super(props)
     this.state={
       popUp:false,
-      widthScreen:width,
-      heightScreen:height
+      deletePopUp:false,
+      note:[]
     }
   }
   static navigationOptions = {
@@ -28,6 +30,19 @@ class Home extends Component {
     let popUpState = this.state.popUp
     this.setState({
       popUp: !popUpState
+    })
+  }
+
+  deletePopUpHandlerOpen = (item) =>{
+    this.setState({
+      deletePopUp: true,
+      note: item
+    })
+  }
+
+  deletePopUpHandlerClose = () =>{
+    this.setState({
+      deletePopUp: false
     })
   }
 
@@ -52,7 +67,7 @@ class Home extends Component {
                 />
               </View>
               <View style={{flex:9, marginTop:10, width:'100%'}}>
-                <FlatListData navigation={this.props.navigation} />
+                <FlatListData navigation={this.props.navigation} deletePopUpHandlerOpen={this.deletePopUpHandlerOpen}/>
               </View>
             </View>
           </View>
@@ -62,26 +77,11 @@ class Home extends Component {
             </TouchableOpacity>
           </View>
 
-          {this.state.popUp?
-            <View style={{width:width, height:height, position:'absolute'}}>
-              <TouchableOpacity style={{backgroundColor:'black', width:this.state.widthScreen, height:this.state.heightScreen, position:'absolute', zIndex:3, opacity:0.6}} onPress={()=>this.popUpHandler()}>
-                <View />
-              </TouchableOpacity>
+          {this.state.popUp? <SortingModal popUpHandler={this.popUpHandler}/> : <View/>}
 
-              <View style={{backgroundColor:'white', borderRadius:10, elevation:9, position:'absolute', right:'5%', zIndex:3, top:height/20, padding:20}}>
-                <TouchableOpacity style={{padding:10}} onPress={()=>{console.warn('Tes Ascending')}}>
-                <Text style={{fontSize:20}}><FontAwesome style={{fontSize:20}} name="arrow-up" /> Ascending</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginTop:5, padding:10}} onPress={()=>{console.warn('Tes Descending')}}>
-                <Text style={{fontSize:20}}><FontAwesome style={{fontSize:20}} name="arrow-down" /> Descending</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            :
-            <View/>
-          }
+          {this.state.deletePopUp? <DeletePopUp deletePopUpHandlerClose={this.deletePopUpHandlerClose} note={this.state.note} />:<View />}
         </View>
-    );
+    )
   }
 }
 
@@ -100,4 +100,6 @@ const AppNavigator = createStackNavigator({
   }
 });
 
-export default createAppContainer(AppNavigator);
+const HomeContainer = createAppContainer(AppNavigator)
+
+export default HomeContainer
