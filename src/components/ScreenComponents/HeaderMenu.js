@@ -30,7 +30,7 @@ class HeaderMenu extends Component{
     return this.props.categories.categoriesData.map(item=>(
       <TouchableOpacity key={item.id} style={{flex:1, flexDirection:'row', padding:15}} onPress={()=>this.props.navigation.navigate('SearchByCategory',{categoryName:item.category})}>
         <View style={{flex:1, alignItems:'center', justifyContent: 'center',}}>
-          <FontAwesome style={styles.drawerIcon} name='user'/>
+          <FontAwesome style={styles.drawerIcon} name={item.image}/>
         </View>
         <Text style={{flex:4, fontSize:20, fontWeight:'400'}}>{item.category}</Text>
       </TouchableOpacity>
@@ -68,7 +68,7 @@ class HeaderMenu extends Component{
           <View style={styles.profileMenu}>
               <Image
               style={styles.image}
-              source={require('../../../assets/images/IMG_42692.jpg')}
+              source={require('../../../assets/images/abc.jpg')}
               />
               <Text style={{fontWeight:'bold', marginTop:10, fontSize:20}}>Asep Lukman Hakim</Text>
           </View>

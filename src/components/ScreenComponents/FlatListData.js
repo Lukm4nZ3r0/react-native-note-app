@@ -12,27 +12,17 @@ class FlatListData extends Component{
         super(props)
         this.state={
             notes:[],
-            loading:false
+            loading:false,
+            nextPage:2
         }
+    }
+    setDefaultNextPage = () =>{
+        this.setState({
+            nextPage:2
+        })
     }
     componentDidMount(){
         this.props.dispatch(getNotes())
-
-        this.subs = [
-            this.props.navigation.addListener('willFocus', ()=>{
-                console.log('will focus dashboard')
-                this.setState({
-                    loading:true
-                })
-                this.props.dispatch(getNotes())
-            })
-        ]
-    }
-
-    componentWillUnmount(){
-        this.subs.forEach(sub =>{
-            sub.remove()
-        })
     }
     renderItem = ({item}) =>{
         // get format time
@@ -80,8 +70,14 @@ class FlatListData extends Component{
         )
     }
     nextPage = () =>{
-        this.props.dispatch(getTheNextPage())
-        console.log('cuyyyy', this.props.notes.data)
+        this.props.dispatch(getTheNextPage(this.state.nextPage, this.props.notes.sort))
+        this.setState({
+            nextPage: this.state.nextPage+1
+        })
+    }
+    _onRefresh = () =>{
+        this.props.dispatch(getNotes())
+        this.setDefaultNextPage()
     }
     render(){
         console.log('dapat data ' ,this.props.notes.data)
@@ -93,9 +89,9 @@ class FlatListData extends Component{
                 numColumns={2}
                 keyExtractor={(item, index) => index}
                 refreshing={this.props.notes.isLoading}
-                onRefresh={()=>this.props.dispatch(getNotes())}
-                onEndReached={()=>this.nextPage()}
-                onEndReachedThreshold={1}
+                onRefresh={this._onRefresh}
+                onEndReached={()=>this.state.nextPage<=this.props.notes.totalPages&&this.nextPage()}
+                onEndReachedThreshold={0.1}
             />
         )
     }
@@ -125,7 +121,6 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) =>{
-    console.log('ini adalah state notes',state.notes)
     return{
         notes: state.notes
     }

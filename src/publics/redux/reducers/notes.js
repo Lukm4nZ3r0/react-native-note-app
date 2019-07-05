@@ -1,10 +1,11 @@
-
 const initialState = {
     number: 0,
     data: [],
+    searchResult: [],
     isLoading:false,
     ascData:[],
     sort:'DESC',
+    currentPage:1,
     totalPages:1
 }
 
@@ -52,13 +53,24 @@ export default notes = (state = initialState, action)=>{
             let fixedData = [newElement].concat(lastData)
             return {
                 ...state,
-                data:fixedData,
+                data:[newElement, ...data],
                 isLoading:false
             }
-        case 'ADD_NEXT_PAGE':
+        case 'ADD_NEXT_PAGE_PENDING':
             return{
                 ...state,
-                data: [...state.data, ...action.payload.data.data]
+                isLoading:true
+            }
+        case 'ADD_NEXT_PAGE_REJECTED':
+            return{
+                ...state,
+                isLoading:false
+            }
+        case 'ADD_NEXT_PAGE_FULFILLED':
+            return{
+                ...state,
+                data: [...state.data, ...action.payload.data.data],
+                isLoading:false
             }
         case 'UPDATE_NOTE_PENDING':
             return{
@@ -111,6 +123,23 @@ export default notes = (state = initialState, action)=>{
                 ...state,
                 data: action.payload.data.data,
                 sort:action.payload.data.sort,
+                isLoading:false
+            }
+        case 'SEARCH_NOTE_PENDING':
+            return{
+                ...state,
+                isLoading:true
+            }
+        case 'SEARCH_NOTE_REJECTED':
+                return{
+                    ...state,
+                    isLoading:false
+                }
+        case 'SEARCH_NOTE_FULFILLED':
+            console.log('Hasil search:', action.payload.data)
+            return{
+                ...state,
+                searchResult: action.payload.data.data,
                 isLoading:false
             }
         // case 'INC_NUMBER':

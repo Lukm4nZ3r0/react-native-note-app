@@ -5,14 +5,15 @@ import store from '../store'
 export const getNotes = () => {
     return{
         type: 'GET_NOTES',
-        payload: axios.get(URL+'/notes?page=1')
+        payload: axios.get(URL+'/notes?page=1&sort=desc')
     }
 }
 
-export const getTheNextPage = () =>{
+export const getTheNextPage = (nextPage, sortMode) =>{
+    console.log('get the next page')
     return{
         type:'ADD_NEXT_PAGE',
-        payload:axios.get(URL+'/notes?page=2')
+        payload:axios.get(URL+'/notes?page='+nextPage+'&sort='+sortMode)
     }
 }
 
@@ -51,7 +52,7 @@ export const deleteNote = (Note) =>{
     }
 }
 
-export const searchNote = (searchKey, sortType) =>{
+export const searchNote = (searchKey, sortType='DESC') =>{
     return {
         type: 'SEARCH_NOTE',
         payload: axios.get(URL+'/notes?search='+searchKey+'&sort='+sortType)

@@ -4,6 +4,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import DummyCategoryData from '../../data/DummyCategoryData'
 //redux
 import {addNotes} from '../../publics/redux/actions/notes'
+import {getCategories} from '../../publics/redux/actions/categories'
 import {connect} from 'react-redux'
 
 let {width} = Dimensions.get('window')
@@ -35,6 +36,7 @@ class AddNote extends Component{
     }
     componentDidMount(){
         this.props.navigation.setParams({addNotesBtn: this.addNotesBtn})
+        this.props.dispatch(getCategories())
     }
     static navigationOptions = ({navigation}) => {
         return {
@@ -47,14 +49,23 @@ class AddNote extends Component{
         }
     };    
 
-    dummyCategoryData = () =>{
-        let dummyData = []
-        for(let i = 0 ; i<DummyCategoryData.length ; i++){
-            dummyData.push(
-                <Picker.Item key={i} label={DummyCategoryData[i].category} value={DummyCategoryData[i].category} />
+    // dummyCategoryData = () =>{
+    //     let dummyData = []
+    //     for(let i = 0 ; i<DummyCategoryData.length ; i++){
+    //         dummyData.push(
+    //             <Picker.Item key={i} label={DummyCategoryData[i].category} value={DummyCategoryData[i].category} />
+    //         )
+    //     }
+    //     return dummyData
+    // }
+    categoryDataList = () =>{
+        let categoryData = []
+        for(let i = 0 ; i<this.props.categories.categoriesData.length ; i++){
+            categoryData.push(
+                <Picker.Item key={i} label={this.props.categories.categoriesData[i].category} value={this.props.categories.categoriesData[i].category} />
             )
         }
-        return dummyData
+        return categoryData
     }
     
     render(){
@@ -88,7 +99,7 @@ class AddNote extends Component{
                         onValueChange={(itemValue,itemIndex)=>this.setState({category:itemValue})}
                         selectedValue={this.state.category}
                     >
-                        {this.dummyCategoryData()}
+                        {this.categoryDataList()}
                         <Picker.Item label="ADD NEW CATEGORY" value="" />
                     </Picker>
                 </View>
@@ -99,7 +110,8 @@ class AddNote extends Component{
 
 const mapStateToProps = (state) =>{
     return{
-        addNote: state.notesData
+        notes: state.notes,
+        categories: state.categories
     }
 }
 

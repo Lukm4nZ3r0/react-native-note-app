@@ -14,7 +14,6 @@ class SortingModal extends Component{
     sortingData = (value) =>{
         this.props.dispatch(itemSorting(value))
         this.props.popUpHandler
-        console.log('ini adalah sorting', this.props.notes.data)
     }
     render(){
         return(

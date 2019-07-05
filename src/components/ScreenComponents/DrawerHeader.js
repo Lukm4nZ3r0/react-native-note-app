@@ -10,7 +10,7 @@ const DrawerHeader = ({navigation, home, title, popUpHandler}) =>{
             <View style={{flex:1, alignItems:'center', justifyContent: 'center',}}>
             {home ? 
               <TouchableOpacity style={{flex:1}} onPress={()=>{navigation.toggleDrawer()}}>
-                <Image source={require('../../../assets/images/IMG_42692.jpg')} style={styles.headerPhoto} />
+                <Image source={require('../../../assets/images/abc.jpg')} style={styles.headerPhoto} />
               </TouchableOpacity> 
               : 
               <TouchableOpacity style={{flex:1}} onPress={()=>{navigation.goBack()}}>
