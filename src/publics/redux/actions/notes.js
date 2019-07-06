@@ -66,6 +66,13 @@ export const itemSorting = (sortType) =>{
     }
 }
 
+export const searchNoteByCategory = (searchKey) =>{
+    return {
+        type: 'SEARCH_BY_CATEGORY',
+        payload: {key:searchKey}
+    }
+}
+
 // export const incNumber = (number) =>{
 //     return{
 //         type:'INC_NUMBER',

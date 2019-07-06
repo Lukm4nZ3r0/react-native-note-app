@@ -9,14 +9,11 @@ let {width,height} = Dimensions.get('window')
 class DeletePopUp extends Component{
     constructor(props){
         super(props)
-        this.state={
-
-        }
     }
     deleteData = () =>{
+        this.props.deletePopUpHandlerClose()
         this.props.dispatch(deleteNote(this.props.note))
         this.props.dispatch(getNotes())
-        this.props.deletePopUpHandlerClose()
     }
     render(){
         return(

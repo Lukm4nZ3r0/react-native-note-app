@@ -6,7 +6,8 @@ const initialState = {
     ascData:[],
     sort:'DESC',
     currentPage:1,
-    totalPages:1
+    totalPages:1,
+    searchByCategoryResult:[]
 }
 
 export default notes = (state = initialState, action)=>{
@@ -40,7 +41,6 @@ export default notes = (state = initialState, action)=>{
                 isLoading: false
             }
         case 'ADD_NOTES_FULFILLED':
-            let lastData = state.data //global state
             let newElement = {
                 id:action.payload.data.data.insertId,
                 title:action.payload.data.values.title,
@@ -48,9 +48,7 @@ export default notes = (state = initialState, action)=>{
                 category:action.payload.data.values.category,
                 time: new Date()
             }
-            // // thx stackoverflow :*
-            // // https://stackoverflow.com/questions/8073673/how-can-i-add-new-array-elements-at-the-beginning-of-an-array-in-javascript
-            let fixedData = [newElement].concat(lastData)
+            // let fixedData = [newElement].concat(lastData)
             return {
                 ...state,
                 data:[newElement, ...data],
@@ -140,6 +138,31 @@ export default notes = (state = initialState, action)=>{
             return{
                 ...state,
                 searchResult: action.payload.data.data,
+                isLoading:false
+            }
+        case 'SEARCH_BY_CATEGORY_PENDING':
+            return{
+                ...state,
+                isLoading:true
+            }
+        case 'SEARCH_BY_CATEGORY_REJECTED':
+            return{
+                ...state,
+                isLoading:false
+            }
+        case 'SEARCH_BY_CATEGORY_FULFILLED':
+            let searchResult
+            for(let i = 0 ; i<data.length ; i++){
+                if(data[i].category = action.payload){
+                    searchResult.push(data[i])
+                }
+            }
+            console.log('ini adalah action payload: ==>>',action.payload)
+            console.log('ini adalah data: ==>>',data)
+            console.log('ini adalah search result: ==>>',searchResult)
+            return{
+                ...state,
+                searchByCategoryResult:searchResult,
                 isLoading:false
             }
         // case 'INC_NUMBER':

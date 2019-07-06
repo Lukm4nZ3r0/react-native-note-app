@@ -23,7 +23,6 @@ class HomeScreen extends Component {
         loading:false,
         nextPage:2
       }
-      this.limitSearch = _.debounce(this.searchFunction, 1000)
     }
     componentDidMount(){
         this.props.dispatch(getNotes())
@@ -49,8 +48,11 @@ class HomeScreen extends Component {
       tabBarLabel: 'Home!',
     };
 
-    searchFunction = (keyword) =>{
-      this.props.dispatch(searchNote(keyword, 'DESC'))
+    searchFunction = (text) =>{
+        this.setState({
+            searchKey:text
+        })
+        this.props.dispatch(searchNote(this.state.searchKey, 'DESC'))
     }
   
     popUpHandler = () =>{
@@ -73,6 +75,7 @@ class HomeScreen extends Component {
       })
     }
 
+    // ---------------------------------- FlatList function ---------------------------
     setDefaultNextPage = () =>{
         this.setState({
             nextPage:2
@@ -133,7 +136,9 @@ class HomeScreen extends Component {
         this.props.dispatch(getNotes())
         this.setDefaultNextPage()
     }
+    // ---------------------------------- End FlatList function ---------------------------
 
+    // ---------------------------------- Sorting Modal function -------------------------
     sortingData = (value) =>{
         this.props.dispatch(itemSorting(value))
         this.popUpHandler()
@@ -141,12 +146,14 @@ class HomeScreen extends Component {
             nextPage:2
         })
     }
-    
+    // ---------------------------------- End Sorting Modal function -------------------
+
+    // ---------------------------------- DeletePopUp function -------------------------
     deleteData = () =>{
         this.props.dispatch(deleteNote(this.state.note))
         this.deletePopUpHandlerClose()
     }
-    
+    // ---------------------------------- End deletePopUp function --------------------
     render() {
       return (
           <View style={{flex:1}}>
@@ -161,12 +168,7 @@ class HomeScreen extends Component {
                   <TextInput 
                     style={{width:'80%'}} 
                     placeholder="Search..."
-                    onChangeText={(text)=>{
-                      this.limitSearch(text)
-                      this.setState({
-                        searchKey: text
-                      })
-                    }}
+                    onChangeText={this.searchFunction}
                   />
                   <FontAwesome 
                     style={{fontSize:30, fontWeight:'bold'}} 
@@ -174,6 +176,9 @@ class HomeScreen extends Component {
                   />
                 </View>
                 <View style={{flex:9, marginTop:10, width:'100%'}}>
+
+
+
 
                   {/* <FlatListData navigation={this.props.navigation} deletePopUpHandlerOpen={this.deletePopUpHandlerOpen}/> */}
                   <FlatList
@@ -188,6 +193,9 @@ class HomeScreen extends Component {
                     onEndReachedThreshold={0.1}
                   />
 
+
+
+
                 </View>
               </View>
             </View>
@@ -196,6 +204,11 @@ class HomeScreen extends Component {
               <FontAwesome style={{fontSize:35, color:'black'}} name="plus" />
               </TouchableOpacity>
             </View>
+  
+
+
+
+
 
 
             {this.state.popUp? 
@@ -218,6 +231,12 @@ class HomeScreen extends Component {
             <View/>
             }
   
+
+
+
+
+
+
             {this.state.deletePopUp?
             // <DeletePopUp deletePopUpHandlerClose={this.deletePopUpHandlerClose} note={this.state.note} />
             <View style={{width:width, height:height, position:'absolute'}}>

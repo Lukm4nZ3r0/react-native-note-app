@@ -60,7 +60,6 @@ class HeaderMenu extends Component{
     }
   }
   render(){
-    console.log('ini adalah kumpulan categories', this.props.categories.categoriesData)
     return(
         <SafeAreaView
           style={{backgroundColor:'white', flex:1}}

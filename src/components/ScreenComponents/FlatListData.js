@@ -4,26 +4,16 @@ import DummyData from '../../data/DummyData'
 //redux
 import {getNotes,getTheNextPage} from '../../publics/redux/actions/notes'
 import {connect} from 'react-redux'
-//store
-import store from '../../publics/redux/store'
 
 class FlatListData extends Component{
     constructor(props){
         super(props)
-        this.state={
-            notes:[],
-            loading:false,
-            nextPage:2
-        }
     }
-    setDefaultNextPage = () =>{
-        this.setState({
-            nextPage:2
-        })
-    }
-    componentDidMount(){
-        this.props.dispatch(getNotes())
-    }
+    // setDefaultNextPage = () =>{
+    //     this.setState({
+    //         nextPage:2
+    //     })
+    // }
     renderItem = ({item}) =>{
         // get format time
         let noteTimes = new Date(item.time).toString().split(' ')
@@ -69,15 +59,15 @@ class FlatListData extends Component{
             </TouchableOpacity>
         )
     }
-    nextPage = () =>{
-        this.props.dispatch(getTheNextPage(this.state.nextPage, this.props.notes.sort))
-        this.setState({
-            nextPage: this.state.nextPage+1
-        })
-    }
+    // nextPage = () =>{
+    //     this.props.dispatch(getTheNextPage(this.state.nextPage, this.props.notes.sort))
+    //     this.setState({
+    //         nextPage: this.state.nextPage+1
+    //     })
+    // }
     _onRefresh = () =>{
         this.props.dispatch(getNotes())
-        this.setDefaultNextPage()
+        this.props.setDefaultNextPage()
     }
     render(){
         console.log('dapat data ' ,this.props.notes.data)
@@ -90,7 +80,7 @@ class FlatListData extends Component{
                 keyExtractor={(item, index) => index}
                 refreshing={this.props.notes.isLoading}
                 onRefresh={this._onRefresh}
-                onEndReached={()=>this.state.nextPage<=this.props.notes.totalPages&&this.nextPage()}
+                onEndReached={()=>this.props.nextPage<=this.props.notes.totalPages&&this.props.nextPage()}
                 onEndReachedThreshold={0.1}
             />
         )
