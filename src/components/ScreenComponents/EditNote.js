@@ -89,16 +89,18 @@ class EditNote extends Component{
                     style={{justifyContent:'flex-start', width:'100%'}}
                 />
                 </View>
-                <View style={{flex:1}}>
-                    <Text style={{fontWeight:'bold',fontSize:20}}>CATEGORY</Text>
-                    <Picker
-                        selectedValue={this.state.category}
-                        onValueChange={(itemValue,itemIndex)=>this.setState({category:itemValue})}
-                        style={{height: 50, width: 200, backgroundColor:'white', padding:15, elevation:5}}
-                    >
-                        {this.categoryDataList()}
-                        <Picker.Item label="ADD NEW CATEGORY" value="" />
-                    </Picker>
+                <View style={{flex:1, flexDirection:'row'}}>
+                    <View style={{flex:1,marginLeft:15}}>
+                        <Text style={{fontWeight:'bold',fontSize:20}}>CATEGORY</Text>
+                        <Picker
+                            selectedValue={this.state.category}
+                            onValueChange={(itemValue,itemIndex)=>this.setState({category:itemValue})}
+                            style={{height: 50, width: 200, backgroundColor:'white', padding:15, elevation:5}}
+                        >
+                            {this.categoryDataList()}
+                            <Picker.Item label="ADD NEW CATEGORY" value="" />
+                        </Picker>
+                    </View>
                 </View>
             </View>
         )

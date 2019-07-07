@@ -27,7 +27,8 @@ const DrawerHeader = ({navigation, home, title, popUpHandler}) =>{
             <View style={{flex:1, alignItems:'center', justifyContent: 'center',}}>
               {home &&
               <TouchableOpacity onPress={()=>popUpHandler()}>
-              <FontAwesome style={{fontSize:23}} name="list-ul" />
+              {/* <FontAwesome style={{fontSize:23}} name="sort-amount-down-alt" /> */}
+              <Image style={{width:25, height:25}} source={require('../../../assets/images/sort-amount-down.png')} />
               </TouchableOpacity>
               }
             </View>

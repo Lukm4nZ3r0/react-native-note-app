@@ -92,7 +92,8 @@ class AddNote extends Component{
                     onChangeText={(text)=>{this.setState({note:text})}}
                 />
                 </View>
-                <View style={{flex:1}}>
+                <View style={{flex:1, flexDirection:'row'}}>
+                    <View style={{flex:1,marginLeft:15}}>
                     <Text style={{fontWeight:'bold',fontSize:20}}>CATEGORY</Text>
                     <Picker
                         style={{height: 50, width: 200, backgroundColor:'white', padding:15, elevation:5}}
@@ -102,6 +103,7 @@ class AddNote extends Component{
                         {this.categoryDataList()}
                         <Picker.Item label="ADD NEW CATEGORY" value="" />
                     </Picker>
+                    </View>
                 </View>
             </View>
         )
