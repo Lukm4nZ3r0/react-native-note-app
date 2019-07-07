@@ -1,6 +1,6 @@
 # react-native-note-app
 
-Description:
+# Description:
 This note application was created using react native's framework. The library used is redux to manage all states. Backend is used using express's framework that runs on the nodejs server.
 
 Backend repository: https://github.com/Lukm4nZ3r0/nodejs-restful-mysql-example
