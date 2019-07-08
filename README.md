@@ -21,6 +21,8 @@ Backend repository: https://github.com/Lukm4nZ3r0/nodejs-restful-mysql-example
 <p>Edit note</p>
 <img src='https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562601232.png?raw=true' width=300 />
 
+<hr />
+
 ### This is an Application Demo Link:
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=a8oE9E8YbzY
 " target="_blank"><img src="https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562478773.png?raw=true" 
