@@ -13,6 +13,6 @@ Backend repository: https://github.com/Lukm4nZ3r0/nodejs-restful-mysql-example
 - Open \src\publics\redux\actions\URL.js and edit the url according to your ip backend
 - after that, run the command ``` react-native run-android ```
 
-![alt text](https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562478773.png)
+ <img src='https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562478773.png?raw=true' width=200 />
 
 ![This demo video](https://raw.githubusercontent.com/Lukm4nZ3r0/react-native-note-app/master/assets/demo/rn-note-app-demo.webm)
