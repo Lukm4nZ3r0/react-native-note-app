@@ -12,7 +12,13 @@ Backend repository: https://github.com/Lukm4nZ3r0/nodejs-restful-mysql-example
 - run terminal/cmd and run the command ``` npm install ```
 - Open \src\publics\redux\actions\URL.js and edit the url according to your ip backend
 - after that, run the command ``` react-native run-android ```
-
- <img src='https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562478773.png?raw=true' width=200 />
+<p>HomeScreen</p>
+<img src='https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562478773.png?raw=true' width=300 />
+<p>Drawer Navigation</p>
+<img src='https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562601209.png?raw=true' width=300 />
+<p>Add New Note</p>
+<img src='https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562601219.png?raw=true' width=300 />
+<p>Edit note</p>
+<img src='https://github.com/Lukm4nZ3r0/react-native-note-app/blob/master/assets/demo/Screenshot_1562601232.png?raw=true' width=300 />
 
 ![this demo link](https://raw.githubusercontent.com/Lukm4nZ3r0/react-native-note-app/master/assets/demo/rn-note-app-demo-edit.mp4)
