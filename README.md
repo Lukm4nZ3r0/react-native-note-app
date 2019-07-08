@@ -3,6 +3,8 @@
 # Description:
 This note application was created using react native's framework. The library used is redux to manage all states. Backend is used using express's framework that runs on the nodejs server.
 
+APK Release: https://drive.google.com/open?id=1kpF82ijt556o8Fb6RnmbGUtj_oQ5wd1r
+
 Backend repository: https://github.com/Lukm4nZ3r0/nodejs-restful-mysql-example
 
 # How to install?
